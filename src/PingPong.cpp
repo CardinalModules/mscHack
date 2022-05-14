@@ -110,6 +110,7 @@ struct PingPong : Module
     void    process(const ProcessArgs &args) override;
     json_t* dataToJson() override;
     void    dataFromJson(json_t *rootJ) override;
+    void    paramsFromJson(json_t* rootJ) override;
     void    onReset() override;
 
     void    ChangeFilterCutoff( float cutfreq );
@@ -274,6 +275,17 @@ void PingPong::dataFromJson(json_t *rootJ)
 		m_bReverseState = json_is_true( revJ );
 
     m_pButtonReverse->Set( m_bReverseState );
+}
+
+
+//-----------------------------------------------------
+// Procedure:   paramsFromJson
+//
+//-----------------------------------------------------
+void PingPong::paramsFromJson(json_t* rootJ)
+{
+    Module::paramsFromJson(rootJ);
+    ChangeFilterCutoff(params[ PARAM_CUTOFF ].value);
 }
 
 //-----------------------------------------------------
