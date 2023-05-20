@@ -82,7 +82,7 @@ struct Seq_Triad2 : Module
     // pattern save
     int             m_CurrentPattern[ nKEYBOARDS ] = {};
     PHRASE_CHANGE_STRUCT m_PatternPending[ nKEYBOARDS ] = {};
-    dsp::SchmittTrigger  m_SchTrigPatternClk[ nKEYBOARDS ] = {};
+    dsp::SchmittTrigger  m_SchTrigPatternClk[ nKEYBOARDS ];
     int             m_MaxPat[ nKEYBOARDS ] = {0};
     PatternSelectStrip *m_pPatternSelectStrip[ nKEYBOARDS ] = {};
 

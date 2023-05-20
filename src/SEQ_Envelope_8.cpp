@@ -55,7 +55,7 @@ struct SEQ_Envelope_8 : Module
     dsp::SchmittTrigger      m_SchTrigGlobalTrig;
 
     // channel triggers
-    dsp::SchmittTrigger      m_SchTrigChTrig[ nCHANNELS ] ={};
+    dsp::SchmittTrigger      m_SchTrigChTrig[ nCHANNELS ];
 
     int                 m_CurrentChannel = 0;
     int                 m_GraphData[ nCHANNELS ][ ENVELOPE_HANDLES ] = {};
